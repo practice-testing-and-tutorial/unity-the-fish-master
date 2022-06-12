@@ -1,0 +1,18 @@
+{
+    "name": "Service",
+    "rootNamespace": "TheFishMaster.Service",
+    "references": [
+        "GUID:5e8d920b19dd40c4d9ee4a840d9011fa",
+        "GUID:3dd902566465f8843a8293de3507a404",
+        "GUID:626ead94b9f0c7f40800269d2442e1a2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

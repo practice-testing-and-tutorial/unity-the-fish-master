@@ -1,0 +1,16 @@
+{
+    "name": "Presentation",
+    "rootNamespace": "TheFishMaster.Presentation",
+    "references": [
+        "GUID:5e8d920b19dd40c4d9ee4a840d9011fa"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

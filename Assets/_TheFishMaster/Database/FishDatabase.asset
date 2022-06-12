@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7294a4c9f9c064d83c4c98435f1bfd, type: 3}
+  m_Name: FishDatabase
+  m_EditorClassIdentifier: 
+  Fishes:
+  - _sprite: {fileID: 21300000, guid: b8a7170ce28203d42a2e63c079ed464b, type: 3}
+    _fishCount: 1
+    _minLength: -1
+    _maxLength: -5
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: 6f24010f28f39bd45a44092bfffff9aa, type: 3}
+    _fishCount: 1
+    _minLength: -6
+    _maxLength: -10
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: 0c17bb386be67ee41948d13f000c97f3, type: 3}
+    _fishCount: 1
+    _minLength: -11
+    _maxLength: -15
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: 51ae324fdf3fcd0488b8522a38a118fd, type: 3}
+    _fishCount: 1
+    _minLength: -16
+    _maxLength: -20
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: 040b6a8fbb2067c4389123ad9b6048f1, type: 3}
+    _fishCount: 1
+    _minLength: -21
+    _maxLength: -25
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: c23724a6b50a41e48b6c67df4827335a, type: 3}
+    _fishCount: 1
+    _minLength: -26
+    _maxLength: -30
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: 268c5b6a473648a4cac5d9504146a9dc, type: 3}
+    _fishCount: 1
+    _minLength: -31
+    _maxLength: -35
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: c436e6c9a54fb6d4895064f18defe5b5, type: 3}
+    _fishCount: 1
+    _minLength: -36
+    _maxLength: -40
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: 18967e1ef47e4114588c4934a15d8282, type: 3}
+    _fishCount: 1
+    _minLength: -41
+    _maxLength: -45
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: ecfa169d9410e6e49a0caa809f136f39, type: 3}
+    _fishCount: 1
+    _minLength: -46
+    _maxLength: -50
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: 10d0c3be910e6db4f87076b55914438d, type: 3}
+    _fishCount: 1
+    _minLength: -51
+    _maxLength: -55
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: 4f453e513fee5dc498d20c34d3bb8e98, type: 3}
+    _fishCount: 1
+    _minLength: -56
+    _maxLength: -60
+    _colliderRadius: 0
+  - _sprite: {fileID: 21300000, guid: 7acfe4d286cb0eb4e8b57cf039848f3b, type: 3}
+    _fishCount: 1
+    _minLength: -61
+    _maxLength: -65
+    _colliderRadius: 0
