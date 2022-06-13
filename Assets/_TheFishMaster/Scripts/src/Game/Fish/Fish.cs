@@ -14,6 +14,10 @@ namespace TheFishMaster.Game
 
         private float _screenLeft;
 
+        private bool _isHooked;
+
+        public bool IsHooked => _isHooked;
+
         public FishData FishData
         {
             get => _fishData;
@@ -49,21 +53,40 @@ namespace TheFishMaster.Game
 
             _tween?.Kill();
 
-            _tween = transform.DOMove(destination, duration).SetLoops(-1, LoopType.Yoyo)
+            _tween = transform.DOMove(destination, duration).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear)
                 .SetDelay(delay)
-                .OnStepComplete(() =>
+                .OnStepComplete(FlipSprite);
+        }
+
+        public void EatBait(Transform baitTransform)
+        {
+            _isHooked = true;
+            _collider.enabled = false;
+            _tween?.Kill();
+
+            transform.SetParent(baitTransform);
+            transform.localScale = Vector3.one;
+            transform.position = baitTransform.position;
+            transform.rotation = Quaternion.identity;
+
+            transform.DOShakeRotation(5f, 45f, 15).SetLoops(1, LoopType.Yoyo)
+                .OnComplete(() => 
                 {
-                    // Flip the fish
-                    var localScale = transform.localScale;
-                    localScale.x = -localScale.x;
-                    transform.localScale = localScale;
+                    transform.rotation = Quaternion.identity;
                 });
         }
 
-        public void EatBait()
+        public void ReleaseFromHook()
         {
-            _collider.enabled = false;
-            _tween?.Kill();
+            _isHooked = false;
+            Setup();
+        }
+
+        private void FlipSprite()
+        {
+            var localScale = transform.localScale;
+            localScale.x = -localScale.x;
+            transform.localScale = localScale;
         }
     }
 }

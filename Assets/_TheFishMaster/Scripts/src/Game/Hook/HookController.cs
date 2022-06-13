@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using UnityEngine;
 using DG.Tweening;
@@ -14,7 +12,9 @@ namespace TheFishMaster.Game
 
         public float Duration => _hook.Length * .1f;
 
-        void Update()
+        public Hook Hook => _hook;
+
+        private void Update()
         {
             if (_hook.IsMovable && Input.GetMouseButton(0))
             {
@@ -24,6 +24,8 @@ namespace TheFishMaster.Game
 
         public void Initialize(Camera camera)
         {
+            _hook.FishCount = 0;
+
             _camera = camera;
 
             _hook.transform.SetParent(_camera.transform);
@@ -31,6 +33,8 @@ namespace TheFishMaster.Game
 
         public void HookDown(Action onComplete = null)
         {
+            _hook.FishCount = 0;
+
             var yPos = transform.position.y;
             _camera.transform.DOMoveY(yPos - _hook.Length, 1 + Duration * .25f).From(yPos)
                 .OnStart(() => { _hook.Collider.enabled = false; })
@@ -42,6 +46,14 @@ namespace TheFishMaster.Game
             var yPos = transform.position.y;
             _camera.transform.DOMoveY(yPos, Duration * 5f)
                 .OnStart(() => { _hook.Collider.enabled = true; })
+                .OnComplete(() => { onComplete?.Invoke(); });
+        }
+
+        public void AbortHook(Action onComplete = null)
+        {
+            var yPos = transform.position.y;
+            _camera.transform.DOMoveY(yPos, Duration * 4f)
+                .OnStart(() => { _hook.Collider.enabled = false; })
                 .OnComplete(() => { onComplete?.Invoke(); });
         }
 

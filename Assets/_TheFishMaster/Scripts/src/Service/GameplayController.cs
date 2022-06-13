@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheFishMaster.Game;
 using TheFishMaster.Infrastructure;
+using System;
 
 namespace TheFishMaster.Service
 {
@@ -14,18 +15,17 @@ namespace TheFishMaster.Service
         [SerializeField] private HookController _hookController;
 
         [SerializeField] private FishDatabaseSO _fishDatabase;
-        [SerializeField] private Fish _fishPrefab;
-        [SerializeField] private Transform _fishesContainer;
-
-        private List<Fish> _fishes;
+        [SerializeField] private Pond _pond;
 
         private void Awake()
         {
             _hookController.Initialize(_camera);
 
+            _hookController.Hook.FishHooked += FishHooked;
+
             _seaBackground.transform.SetParent(_camera.transform);
 
-            PopulateFishes();
+            _pond.PopulateFishes(_fishDatabase.Fishes);
         }
 
         private void Start()
@@ -33,22 +33,18 @@ namespace TheFishMaster.Service
             StartFishing();
         }
 
-        public void PopulateFishes()
+        private void OnDestroy() 
         {
-            var count = _fishDatabase.Fishes.Length;
+            _hookController.Hook.FishHooked -= FishHooked;
+        }
 
-            _fishes ??= new List<Fish>();
+        private void FishHooked(object sender, EventArgs e)
+        {
+            var fishCount = _hookController.Hook.FishCount;
 
-            for (var i = 0; i < count; i++)
+            if (fishCount >= _hookController.Hook.Capacity)
             {
-                var multiplier = _fishDatabase.Fishes[i].FishCount;
-                for (var j = 0; j < multiplier; j++)
-                {
-                    var fish = Instantiate(_fishPrefab, _fishesContainer);
-                    fish.FishData = _fishDatabase.Fishes[i];
-                    fish.Setup();
-                    _fishes.Add(fish);
-                }
+                StopFishing();
             }
         }
 
@@ -67,6 +63,10 @@ namespace TheFishMaster.Service
             // todo: Hide the hook
             // todo: Jump (smoothly) the camera to the main display
             // todo: Clear fish from the hook or some other mechanism
+            _hookController.AbortHook(() => 
+            {
+                _pond.ReleaseFishFromHook();
+            });
         }
     }
 }

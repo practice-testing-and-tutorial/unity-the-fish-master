@@ -531,8 +531,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1047630250}
+  - component: {fileID: 1047630251}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Pond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -556,6 +557,21 @@ Transform:
   m_Father: {fileID: 1729562183}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047630251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047630249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cf587ee41942d4cacdb23d168fb9b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fishes: []
+  _fishPrefab: {fileID: 5372472161577955613, guid: 3cdb77c9dd1a9454a8dc4fc86b4abf09, type: 3}
+  _fishesContainer: {fileID: 409771848}
 --- !u!1 &1085134033
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,8 +622,7 @@ MonoBehaviour:
   _seaBackground: {fileID: 431941289}
   _hookController: {fileID: 566825727}
   _fishDatabase: {fileID: 11400000, guid: df452cab03cc37d4ea0469585cead09f, type: 2}
-  _fishPrefab: {fileID: 5372472161577955613, guid: 3cdb77c9dd1a9454a8dc4fc86b4abf09, type: 3}
-  _fishesContainer: {fileID: 409771848}
+  _pond: {fileID: 1047630251}
 --- !u!1 &1382812735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1043,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 647898352}
+    - target: {fileID: 7147805575257813714, guid: c27af9adbaaaf2a4389b29021ce30c77, type: 3}
+      propertyPath: _capacity
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27af9adbaaaf2a4389b29021ce30c77, type: 3}
 --- !u!114 &846722335793241990 stripped
